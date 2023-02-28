@@ -38,6 +38,12 @@ spring:
           max-idle-time: 15s
           max-life-time: 60s
       default-filters:
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter:
+              replenishRate: 10
+              burstCapacity: 20
+              requestedTokens: 1
         - name: Retry
           args:
             retries: 3
@@ -68,6 +74,6 @@ resilience4j:
       default:
         timeout-duration: 5s
 
-logging:
-  level:
-    io.github.resilience4j: DEBUG
+#logging:
+ # level:
+  #  io.github.resilience4j: DEBUG
