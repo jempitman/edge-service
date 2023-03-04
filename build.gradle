@@ -24,13 +24,14 @@ dependencies {
 	implementation 'org.springframework.session:spring-session-data-redis'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.retry:spring-retry'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 	//Only on Apple Silicon. Why it's necessary: https://github.com/netty/netty/issues/11020
 	runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.79.Final:osx-aarch_64'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.springframework.security:spring-security-test'
 }
 
 dependencyManagement {
