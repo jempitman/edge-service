@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@WebFluxTest
+@WebFluxTest(UserController.class)
 @Import(SecurityConfig.class)
 public class UserControllerTests {
 
