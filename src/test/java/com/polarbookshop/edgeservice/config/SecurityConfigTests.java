@@ -34,6 +34,16 @@ public class SecurityConfigTests {
     }
 
     @Test
+    void whenLogoutAuthenticatedAndNoCsrfTokenThen403(){
+        webClient
+                .mutateWith(SecurityMockServerConfigurers.mockOidcLogin())
+                .post()
+                .uri("/logout")
+                .exchange()
+                .expectStatus().isForbidden();
+    }
+
+    @Test
     void whenLogoutAuthenticatedAndWithCsrfTokenThen302(){
         when(clientRegistrationRepository.findByRegistrationId("test"))
                 .thenReturn(Mono.just(testClientRegistration()));
