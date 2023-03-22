@@ -29,6 +29,7 @@ dependencies {
 
 	//Only on Apple Silicon. Why it's necessary: https://github.com/netty/netty/issues/11020
 	runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.79.Final:osx-aarch_64'
+	runtimeOnly 'io.github.resilience4j:resilience4j-micrometer'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
