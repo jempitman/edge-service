@@ -124,7 +124,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, prometheus
+        include: configprops, env, gateway, health, heapdump, info, loggers, mappings, prometheus
   endpoint:
     health:
       show-details: always
