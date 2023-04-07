@@ -29,27 +29,27 @@ spec:
           ports:
             - containerPort: 9000
           env:
-            - name: CATALOG_SERVICE_URI
+            - name: CATALOG_SERVICE_URL
               value: http://catalog-service
-            - name: ORDER_SERVICE_URI
+            - name: ORDER_SERVICE_URL
               value: http://order-service
             - name: SPA_URL
               value: http://polar-ui
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 9002
-            initialDelaySeconds: 240 #4 minutes
+              port: 9000
+            initialDelaySeconds: 180 #3 minutes
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 9002
-            initialDelaySeconds: 240 # 4 minutes
+              port: 9000
+            initialDelaySeconds: 180 #3 minutes
             periodSeconds: 15
           volumeMounts:
-            - mountPath: /workspace/config
-              name: edge-config-volume
+            - name: edge-config-volume
+              mountPath: /workspace/config
       volumes:
         - name: edge-config-volume
           configMap:
